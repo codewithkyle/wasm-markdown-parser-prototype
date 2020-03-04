@@ -11,10 +11,10 @@ jobs:
               uses: actions/checkout@master
 
             - name: Install Rust
-              uses: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+              run: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
             - name: Install WASM Pack
-              uses: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+              run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 
             - name: Setup Node and NPM
               uses: actions/setup-node@v1
