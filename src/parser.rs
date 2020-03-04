@@ -49,8 +49,12 @@ impl Parser {
         let pound = self.consume_while(|c| c == '#');
         self.consume_whitespace();
         let text = self.parse_text();
+        let mut heading = pound.len();
+        if heading > 6 {
+            heading = 6;
+        }
 
-        create_html_element(format!("h{}", pound.len()), text)
+        create_html_element(format!("h{}", heading), text)
     }
 
     fn parse_text(&mut self) -> String {
