@@ -16,6 +16,9 @@ jobs:
             - name: Install WASM Pack
               run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 
+            - name: Build WASM
+              run: npm run build:rust
+
             - name: Setup Node and NPM
               uses: actions/setup-node@v1
               with:
