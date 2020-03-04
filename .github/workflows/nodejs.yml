@@ -11,7 +11,7 @@ jobs:
               uses: actions/checkout@master
 
             - name: Install Rust
-              run: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -y
+              run: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs -y | sh
 
             - name: Install WASM Pack
               run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
