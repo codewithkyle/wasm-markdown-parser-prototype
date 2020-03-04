@@ -1,9 +1,17 @@
 const path = require('path');
 module.exports = {
-  entry: "./app.js",
+  entry: "./app/app.js",
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
   output: {
-    path: path.resolve(__dirname, "docs"),
+    path: path.resolve(__dirname, "public"),
     filename: "app.js",
   },
-  mode: "development"
+  mode: process.env.NODE_ENV
 };

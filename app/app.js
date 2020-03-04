@@ -1,4 +1,5 @@
-const rust = import('./pkg/rust_demo');
+const rust = import('../pkg/rust_demo');
+import './vars.css';
 
 const preview = document.body.querySelector('#output');
 const input = document.body.querySelector('#input');

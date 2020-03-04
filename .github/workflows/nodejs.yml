@@ -1,0 +1,33 @@
+name: Build and Deploy
+on:
+    push:
+        branches:
+            - master
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@master
+
+            - name: Install Rust
+              uses: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+            - name: Install WASM Pack
+              uses: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+
+            - name: Setup Node and NPM
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 12.10.0
+
+            - name: Install NPM Packages
+              run: npm ci
+
+            - name: Build
+              run: npm run production
+
+            - name: Deploy
+              run: npm run deploy
+              env:
+                  ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
