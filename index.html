@@ -8,6 +8,13 @@
 <body style="opacity: 0;">
     <textarea id="input">Start typing to begin</textarea>
     <div id="output"></div>
+    <textarea readonly id="output-raw"></textarea>
+    <div id="output-switcher">
+        <input type="radio" id="text" name="output" value="text" checked>
+        <label for="text">Text</label>
+        <input type="radio" id="html" name="output" value="html">
+        <label for="html">HTML</label>
+    </div>
     <script type="module" src="./app.js"></script>
 </body>
 </html>
