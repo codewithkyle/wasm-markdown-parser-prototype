@@ -9,6 +9,13 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    modules: [
+      "node_modules",
+      path.resolve(__dirname, "app")
+    ],
+    extensions: [".js", ".json", ".css"],
+  },
   output: {
     path: path.resolve(__dirname, "public"),
     filename: "app.js",
